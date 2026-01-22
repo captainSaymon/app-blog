@@ -9,16 +9,16 @@ import { BlogItem } from '../blog-item/blog-item';
  imports: [BlogItem, CommonModule],
  providers: [DataService],
  templateUrl: './blog.html',
- styleUrl: './blog.css'
+ styleUrl: './blog.scss'
 })
-export class BlogComponent implements OnInit{
- public items: any;
+export class Blog implements OnInit{
+ public items$: any;
 
  constructor(private service: DataService) {
  }
 
  ngOnInit() {
-   this.items = this.service.getAll();
+   this.items$ = this.service.getAll();
  }
 
 }
