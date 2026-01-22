@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-blog-item-text',
+  selector: 'blog-item-text',
   imports: [],
   templateUrl: './blog-item-text.html',
   styleUrl: './blog-item-text.scss',
