@@ -23,4 +23,10 @@ export class Blog implements OnInit{
    this.items$ = this.service.getAll();
  }
 
+  getAll(){
+   this.service.getAll().subscribe(response => {
+     this.items$ = response;
+   });
+ }
+
 }
