@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CommentsService, Comment } from '../../services/comments-service';
 import { Observable, of } from 'rxjs';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { switchMap, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'comments-section',
@@ -20,12 +19,10 @@ export class CommentsSection implements OnInit {
   constructor(private commentsService: CommentsService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    // Formularz
     this.commentForm = this.fb.group({
       text: ['', Validators.required]
     });
 
-    // Początkowe pobranie komentarzy
     this.loadComments();
   }
 
@@ -39,10 +36,10 @@ export class CommentsSection implements OnInit {
         id: this.id,
         text: this.commentForm.value.text
       };
-      // Dodanie komentarza
+      
       this.commentsService.addComment(newComment).subscribe(() => {
         this.commentForm.reset();
-        this.loadComments(); // odświeżenie listy komentarzy
+        this.loadComments();
       });
     }
   }
