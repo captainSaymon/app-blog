@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './blog-item-details.scss',
 })
 export class BlogItemDetails {
-
+  public image: string = 'http://osnews.pl/wp-content/uploads/2016/06/it-grafika.jpg';
+  public text: string = 'Tytuł';
 }
