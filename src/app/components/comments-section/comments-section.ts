@@ -46,7 +46,7 @@ export class CommentsSection implements OnInit {
 
   showComments = false;
 
-  toggleAddPost() {
+  toggleComments() {
     this.showComments = !this.showComments;
   }
 }
