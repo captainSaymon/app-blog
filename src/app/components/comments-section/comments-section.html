@@ -1,1 +1,5 @@
-<p>comments-section works!</p>
+<div *ngIf="comments$ | async as comments">
+  <p class="card-text text-white" *ngFor="let comment of comments">
+    {{ comment.text }}
+  </p>
+</div>
