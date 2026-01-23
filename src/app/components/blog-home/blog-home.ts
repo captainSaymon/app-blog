@@ -9,7 +9,7 @@ import { Blog } from '../blog/blog';
  templateUrl: './blog-home.html',
  styleUrl: './blog-home.scss'
 })
-export class BlogHomeComponent implements OnInit {
+export class BlogHome implements OnInit {
 
  public filterText: string = '';
 
