@@ -1,5 +1,25 @@
+<h5>Komentarze: </h5>
 <div *ngIf="comments$ | async as comments">
-  <p class="card-text text-white" *ngFor="let comment of comments">
+  <p class="card-text custom text-white rounded p-2 mb-1" *ngFor="let comment of comments">
     {{ comment.text }}
   </p>
 </div>
+<br>
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="bg-dark rounded w-100 text-white">
+  <div class="mb-2">
+    <textarea 
+      id="text" 
+      formControlName="text" 
+      class="form-control bg-secondary text-white small-textarea" 
+      placeholder="Napisz komentarz..." 
+      rows="1"
+    ></textarea>
+    <div class="text-danger mt-1  " *ngIf="commentForm.controls['text'].invalid && (commentForm.controls['text'].touched)">
+      Komentarz nie może być pusty.
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary w-100" [disabled]="commentForm.invalid">
+    Dodaj
+  </button>
+</form>
+

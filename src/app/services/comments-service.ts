@@ -26,4 +26,9 @@ export class CommentsService {
   getAll(): Observable<Comment[]> {
     return of(comments);
   }
+
+    addComment(comment: Comment) {
+    comments.push(comment);
+    return of(comment);
+  }
 }
