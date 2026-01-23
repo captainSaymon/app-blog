@@ -1,6 +1,13 @@
 import {Injectable} from '@angular/core';
 
-const posts = [
+export interface Post {
+  title: string;
+  text: string;
+  image: string;
+  id: string;
+}
+
+const posts: Post[] = [
  {
    "title": "Post 1",
    "text": "Baza danych przechowuje informacje w strukturalny sposób.",
@@ -68,11 +75,17 @@ const posts = [
  providedIn: 'root'
 })
 export class DataService {
-
- constructor() {
- }
+ constructor() {}
 
  public getAll() {
    return posts;
+ }
+
+ public getCount(): number {
+  return posts.length;
+ }
+
+ public addPost(post: Post) {
+  posts.push(post);
  }
 }
