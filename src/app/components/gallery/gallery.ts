@@ -7,11 +7,12 @@ import { DataService } from '../../services/data';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './gallery.html',
-  styleUrl: './gallery.scss'
+  styleUrls: ['./gallery.scss']
 })
 export class Gallery {
-
   images: string[] = [];
+  showLightbox = false;
+  currentImage: string | null = null;
 
   constructor(private dataService: DataService) {}
 
@@ -25,5 +26,15 @@ export class Gallery {
   toggleGallery() {
     this.showGallery = !this.showGallery;
     this.ngOnInit()
+  }
+
+  openLightbox(img: string) {
+    this.currentImage = img;
+    this.showLightbox = true;
+  }
+
+  closeLightbox() {
+    this.showLightbox = false;
+    this.currentImage = null;
   }
 }
