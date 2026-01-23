@@ -43,4 +43,10 @@ export class CommentsSection implements OnInit {
       });
     }
   }
+
+  showComments = false;
+
+  toggleAddPost() {
+    this.showComments = !this.showComments;
+  }
 }
