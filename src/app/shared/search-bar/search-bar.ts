@@ -9,7 +9,7 @@ import { FormsModule } from "@angular/forms";
  templateUrl: './search-bar.html',
  styleUrl: './search-bar.scss'
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBar implements OnInit {
  public filterText: string = '';
 
  @Output() name = new EventEmitter<string>();
