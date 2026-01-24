@@ -21,12 +21,17 @@ export class Blog implements OnInit{
  constructor(private service: DataService) {
  }
 
- ngOnInit() {
-   this.items$ = this.service.getAll();
- }
+  ngOnInit() {
+    this.service.getAll().subscribe((posts: any) => {
+      const arr = Array.isArray(posts) ? posts : posts.data;
+      this.items$ = arr;
+    });
+  }
+
 
   getAll(){
    this.service.getAll().subscribe(response => {
+    console.log(response);
      this.items$ = response;
    });
  }
