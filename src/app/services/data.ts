@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Post {
-  id?: number;
   title: string;
-  content: string;
+  text: string;
+  image: string;
 }
 
 @Injectable({
@@ -17,15 +17,15 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.url}/api/posts`);
+  getAll(){
+    return this.http.get<Post[]>(`${this.url}/gets/all`);
   }
 
-  getCount(): Observable<number> {
+  getCount() {
     return this.getAll().pipe(map(posts => posts.length));
   }
 
-  addPost(post: Post): Observable<Post> {
-    return this.http.post<Post>(`${this.url}/api/posts`, post);
+  addPost(id: string, post: Post) {
+    return this.http.post(`${this.url}/posts/${id}`, post);
   }
 }
