@@ -6,11 +6,7 @@ export interface Comment {
   text: string;
 }
 
-const comments: Comment[] = [
-  { text: 'hi', id: '64549b5362f53f833c89f6ab' },
-  { text: 'hi there', id: '64549b5362f53f833c89f6ab' },
-  { text: 'hello', id: '64549b6062f53f833c89f6ac' }
-];
+const comments: Comment[] = [];
 
 @Injectable({
   providedIn: 'root',
