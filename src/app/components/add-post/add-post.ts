@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { DataService, Post } from '../../services/data';
@@ -6,18 +6,15 @@ import { DataService, Post } from '../../services/data';
 @Component({
   selector: 'add-post',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './add-post.html',
-  styleUrl: './add-post.scss',
+  styleUrls: ['./add-post.scss'],
 })
-
-export class AddPost {
+export class AddPost implements OnInit {
 
   postForm!: FormGroup;
   imagePreview: string | null = null;
+  showAddPost = false;
 
   constructor(
     private fb: FormBuilder,
@@ -36,7 +33,6 @@ export class AddPost {
     if (!input.files || input.files.length === 0) return;
 
     const file = input.files[0];
-
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = reader.result as string;
@@ -48,25 +44,24 @@ export class AddPost {
   onSubmit() {
     if (this.postForm.invalid) return;
 
-    const nextNumber = this.dataService.getCount() + 1;
-
     const newPost: Post = {
-      title: `Post ${nextNumber}`, 
+      title: `Post 0`,  // stały numer
       text: this.postForm.value.text,
-      image: this.postForm.value.image,
-      id: crypto.randomUUID()
+      image: this.postForm.value.image
     };
 
-    this.dataService.addPost(newPost);
-
-    this.postForm.reset();
-    this.imagePreview = null;
+    this.dataService.addPost("1", newPost).subscribe({
+      next: () => {
+        console.log('Post dodany');
+        this.postForm.reset();
+        this.imagePreview = null;
+        this.showAddPost = false;
+      },
+      error: (err) => console.error('Błąd dodawania posta', err)
+    });
   }
-
-  showAddPost = false;
 
   toggleAddPost() {
     this.showAddPost = !this.showAddPost;
   }
 }
-

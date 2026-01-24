@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data';
 
@@ -9,23 +9,27 @@ import { DataService } from '../../services/data';
   templateUrl: './gallery.html',
   styleUrls: ['./gallery.scss']
 })
-export class Gallery {
+export class Gallery implements OnInit {
+
   images: string[] = [];
   showLightbox = false;
   currentImage: string | null = null;
+  showGallery = false;
 
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    const posts = this.dataService.getAll();
-    this.images = posts.map(p => p.image).filter(img => !!img);
+    this.dataService.getAll().subscribe((posts: any) => {
+      const arr = posts as any[];
+      this.images = arr
+        .map((p: any) => p.image)
+        .filter((img: string) => !!img);
+    });
   }
-
-  showGallery = false;
 
   toggleGallery() {
     this.showGallery = !this.showGallery;
-    this.ngOnInit()
+    this.ngOnInit();
   }
 
   openLightbox(img: string) {
