@@ -1,19 +1,19 @@
 <div class="card h-100 bg-dark text-white">
   <blog-item-image [image]="image"></blog-item-image>
-  <div>
-    <i class="fa m-3"
+  <div class="d-flex align-items-center m-3 gap-2">
+    <i class="fa"
        [ngClass]="{'fa-heart': isFavorite, 'fa-heart-o': !isFavorite}"
        (click)="toggleFavorite()"
        style="cursor: pointer; color: rgb(0, 149, 255);">
     </i>
-  </div>
-  <div class="card-body text-white">
-    <blog-item-text [text]="text"></blog-item-text>
+    <div class="ms-2">
+      <rating [postId]="postId"></rating>
+    </div>
   </div>
   <div class="card-body text-start">
-    <a class="btn btn-primary" [routerLink]="['/blog/detail', postId]">
-      Więcej
-    </a>
+    <div class="card-body text-white clickable-content" [routerLink]="['/blog/detail', postId]">
+      <blog-item-text [text]="text"></blog-item-text>
+    </div>
   </div>
   <div class="card-body text-white">
     <comments-section [id]="postId"></comments-section>

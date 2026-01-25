@@ -1,0 +1,9 @@
+.description-text {
+  &:hover {
+    color: #0d6efd !important;
+  }
+
+  &:hover * {
+    color: #0d6efd !important;
+  }
+}

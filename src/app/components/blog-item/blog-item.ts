@@ -5,11 +5,12 @@ import { BlogItemText } from '../blog-item-text/blog-item-text';
 import { CommentsSection } from '../comments-section/comments-section';
 import { RouterModule } from '@angular/router';
 import { Favorites } from '../../services/favorites';
+import { Rating } from '../../shared/rating/rating';
 
 @Component({
   selector: 'blog-item',
   standalone: true,
-  imports: [CommonModule, BlogItemImage, BlogItemText, CommentsSection, RouterModule],
+  imports: [CommonModule, BlogItemImage, BlogItemText, CommentsSection, RouterModule, Rating],
   templateUrl: './blog-item.html',
   styleUrl: './blog-item.scss'
 })
