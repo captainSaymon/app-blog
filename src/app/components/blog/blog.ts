@@ -18,8 +18,7 @@ export class Blog implements OnInit{
  public items$: any;
  @Input() filterText: string = '';
 
- constructor(private service: DataService) {
- }
+ constructor(private service: DataService) { }
 
   ngOnInit() {
     this.service.getAll().subscribe((posts: any) => {
@@ -28,6 +27,9 @@ export class Blog implements OnInit{
     });
   }
 
+  refreshPosts() {
+    window.location.reload();
+  }
 
   getAll(){
    this.service.getAll().subscribe(response => {

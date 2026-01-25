@@ -1,1 +1,13 @@
-<input [(ngModel)]="filterText" (ngModelChange)="sendFilter()" placeholder="Wpisz nazwę..." id="search" type="search" class="form-control" textFormat>
+<div class="d-flex justify-content-center">
+  <button class="btn btn-black text-white" (click)="toggleSearch()">
+    <h5 class="mb-0">Szukaj</h5>
+  </button>
+</div>
+@if (showSearchBar)
+{
+  <div class="d-flex justify-content-center my-1">
+      <div class="w-50">
+          <input [(ngModel)]="filterText" (ngModelChange)="sendFilter()" placeholder="Szukaj..." id="search" type="search" class="form-control w-100" textFormat>
+      </div>
+  </div>
+}
