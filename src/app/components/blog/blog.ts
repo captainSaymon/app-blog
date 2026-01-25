@@ -43,6 +43,7 @@ export class Blog implements OnInit {
 
   refreshPosts() {
     this.loadPosts();
+    window.location.reload();
   }
 
   onPageChange(page: number) {

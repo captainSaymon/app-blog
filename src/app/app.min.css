@@ -1,0 +1,1 @@
+.navbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:1rem 2rem;width:100%}.navbar__title{font-size:3rem;font-weight:bold;text-align:center;margin:0;white-space:nowrap}.navbar__toggle{display:flex;justify-content:flex-end}.navbar__spacer{visibility:hidden}

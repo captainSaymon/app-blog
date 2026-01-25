@@ -1,3 +1,7 @@
+.mainContainer {
+  color: var(--bs-body-color);
+}
+
 .custom {
-  background-color: #282727;
+  color: var(--text-color);
 }
