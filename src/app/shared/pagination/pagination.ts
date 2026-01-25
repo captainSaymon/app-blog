@@ -1,25 +1,21 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'pagination',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './pagination.html',
-  styleUrl: './pagination.scss',
+  styleUrls: ['./pagination.scss']
 })
-export class PaginationComponent {
+export class Pagination {
   @Input() totalItems: number = 0;
-  @Input() itemsPerPage: number = 2;
+  @Input() itemsPerPage: number = 5;
   @Input() currentPage: number = 1;
   @Output() pageChange = new EventEmitter<number>();
 
   get totalPages(): number {
     return Math.ceil(this.totalItems / this.itemsPerPage);
-  }
-
-  get pages(): number[] {
-    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
 
   changePage(page: number): void {

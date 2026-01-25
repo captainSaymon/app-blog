@@ -15,11 +15,17 @@
         <p>Brak wyników</p>
       </div>
     }
-    @for (item of (items$ | filter:filterText); track item._id)
+    @for (item of (items$ | filter:filterText | paginate:currentPage:itemsPerPage); track item._id)
     {
       <div class="col-12 col-md-7 mb-4">
         <blog-item [image]="item.image" [text]="item.text" [postId]="item._id"></blog-item>
       </div>
     }
+    <pagination
+  [totalItems]="(items$ | filter:filterText)?.length || 0"
+  [itemsPerPage]="itemsPerPage"
+  [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)">
+</pagination>
   </div>
 </div>

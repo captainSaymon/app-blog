@@ -1,6 +1,8 @@
-<button class="btn btn-black mb-3 text-white" (click)="toggleComments()">
-  <h5 class="mb-0">Komentarze</h5>
-</button>
+<div>
+  <button class="btn btn-black text-white p-2" (click)="toggleComments()">
+    <h5>Komentarze</h5>
+  </button>
+</div>
 <div *ngIf="showComments">
   <div *ngIf="comments$ | async as comments">
     <p class="card-text custom text-white rounded p-2 mb-1" *ngFor="let comment of comments">
