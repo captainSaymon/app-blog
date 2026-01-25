@@ -22,13 +22,15 @@ export class SearchBar implements OnInit {
   ngOnInit(): void {
   this.route.queryParams.subscribe(params => {
     this.filterText = params['name'];
-    this.sendFilter();
+    this.name.emit(this.filterText);
   });
   }
 
 
   sendFilter(): void {
-    this.router.navigate(['/'], {queryParams: {name: this.filterText?.toLowerCase()}});
+    this.router.navigate(['/'], {
+      queryParams: { name: this.filterText?.toLowerCase() }
+    });
     this.name.emit(this.filterText);
   }
 }
