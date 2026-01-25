@@ -5,51 +5,58 @@
       <h5 class="mb-0">Dodaj post</h5>
     </button>
 
-    <div *ngIf="showAddPost" class="w-50 d-flex justify-content-center">
+    <div class="w-50 d-flex justify-content-center">
+      @if (showAddPost)
+      {        
+        <form 
+          [formGroup]="postForm" 
+          (ngSubmit)="onSubmit()" 
+          class="bg-dark rounded text-white p-4 
+                w-100 w-md-75 w-lg-50 shadow"
+          style="max-width: 700px;"
+        >
 
-      <form 
-        [formGroup]="postForm" 
-        (ngSubmit)="onSubmit()" 
-        class="bg-dark rounded text-white p-4 
-               w-100 w-md-75 w-lg-50 shadow"
-        style="max-width: 700px;"
-      >
+          <div class="mb-3">
+            <textarea 
+              formControlName="text"
+              class="form-control bg-white text-black"
+              placeholder="Opis"
+              rows="3"></textarea>
 
-        <div class="mb-3">
-          <textarea 
-            formControlName="text"
-            class="form-control bg-white text-black"
-            placeholder="Opis"
-            rows="3"></textarea>
-
-          <div class="text-danger small" 
-               *ngIf="postForm.controls['text'].touched && postForm.controls['text'].invalid">
-            Opis nie może być pusty
+            @if (postForm.controls['text'].touched && postForm.controls['text'].invalid)
+            {
+              <div class="text-danger small">
+                Opis nie może być pusty
+              </div>
+            }
           </div>
-        </div>
 
-        <div class="mb-3">
-          <input 
-            type="file"
-            class="form-control bg-white text-black"
-            accept="image/*"
-            (change)="onImageSelected($event)">
-        </div>
+          <div class="mb-3">
+            <input 
+              type="file"
+              class="form-control bg-white text-black"
+              accept="image/*"
+              (change)="onImageSelected($event)">
+          </div>
 
-        <div *ngIf="imagePreview" class="mb-3 text-center">
-          <img 
-            [src]="imagePreview" 
-            class="img-fluid rounded border"
-            style="max-height: 250px;">
-        </div>
-        <button 
-          type="submit" 
-          class="btn btn-primary w-100 py-2"
-          [disabled]="postForm.invalid">
-          Dodaj
-        </button>
+          @if (imagePreview)
+          {
+            <div class="mb-3 text-center">
+              <img 
+                [src]="imagePreview" 
+                class="img-fluid rounded border"
+                style="max-height: 250px;">
+            </div>
+          }
+          <button 
+            type="submit" 
+            class="btn btn-primary w-100 py-2"
+            [disabled]="postForm.invalid">
+            Dodaj
+          </button>
 
-      </form>
+        </form>
+      }
 
     </div>
   </div>

@@ -3,8 +3,11 @@
     <h5 class="mb-0">Szukaj</h5>
   </button>
 </div>
-<div *ngIf="showSearchBar" class="d-flex justify-content-center my-1">
-    <div class="w-50">
-        <input [(ngModel)]="filterText" (ngModelChange)="sendFilter()" placeholder="Szukaj..." id="search" type="search" class="form-control w-100" textFormat>
-    </div>
-</div>
+@if (showSearchBar)
+{
+  <div class="d-flex justify-content-center my-1">
+      <div class="w-50">
+          <input [(ngModel)]="filterText" (ngModelChange)="sendFilter()" placeholder="Szukaj..." id="search" type="search" class="form-control w-100" textFormat>
+      </div>
+  </div>
+}

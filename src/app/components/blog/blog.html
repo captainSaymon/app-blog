@@ -4,8 +4,11 @@
 </div>
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-7 mb-5" *ngFor="let item of items$ | filter:filterText">
-      <blog-item [image]="item.image" [text]="item.text" [postId]="item._id"></blog-item>
-    </div>
+    @for (item of (items$ | filter:filterText); track item._id)
+    {
+      <div class="col-md-7 mb-5">
+        <blog-item [image]="item.image" [text]="item.text" [postId]="item._id"></blog-item>
+      </div>
+    }
   </div>
 </div>
