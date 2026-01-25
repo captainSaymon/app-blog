@@ -10,5 +10,4 @@ import { RouterModule } from "@angular/router";
 })
 export class BlogItemText {
   @Input() text?: string;
-  @Input() id?: number | string;
 }

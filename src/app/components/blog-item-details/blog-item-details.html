@@ -1,4 +1,4 @@
-<img [src]="image" >
-<p>
- {{ text }}
-</p>
+<div class="container mt-4">
+  <img [src]="post.image" alt="{{ post.title }}" class="img-fluid mb-3">
+  <p>{{ post.text }}</p>
+</div>
