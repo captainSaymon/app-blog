@@ -1,0 +1,18 @@
+.pagination-dark .page-link {
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.pagination-dark .page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: var(--text-color);
+}
+
+.pagination-dark .page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}

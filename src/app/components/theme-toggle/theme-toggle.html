@@ -1,0 +1,8 @@
+<div class="toggle-wrapper">
+  <button class="theme-button" (click)="toggle()" [class.is-dark]="darkMode$ | async">
+    <span class="theme-button__label">
+      <ng-container *ngIf="darkMode$ | async; else light">DARK</ng-container>
+      <ng-template #light>LIGHT</ng-template>
+    </span>
+  </button>
+</div>
