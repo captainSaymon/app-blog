@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-rating',
+  selector: 'rating',
   imports: [],
   templateUrl: './rating.html',
   styleUrl: './rating.scss',
