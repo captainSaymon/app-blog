@@ -3,9 +3,11 @@
   <div class="card-body text-white">
     <blog-item-text [text]="text"></blog-item-text>
   </div>
-  <a class="btn btn-primary" [routerLink]="['/blog/detail', postId]">
-    Więcej
-  </a>
+  <div class="card-body text-start">
+    <a class="btn btn-primary" [routerLink]="['/blog/detail', postId]">
+      Więcej
+    </a>
+  </div>
   <div class="card-body text-white">
     <comments-section [id]="postId"></comments-section>
   </div>
