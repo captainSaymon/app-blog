@@ -1,5 +1,12 @@
 <div class="card h-100 bg-dark text-white">
   <blog-item-image [image]="image"></blog-item-image>
+  <div>
+    <i class="fa m-3"
+       [ngClass]="{'fa-heart': isFavorite, 'fa-heart-o': !isFavorite}"
+       (click)="toggleFavorite()"
+       style="cursor: pointer; color: rgb(0, 149, 255);">
+    </i>
+  </div>
   <div class="card-body text-white">
     <blog-item-text [text]="text"></blog-item-text>
   </div>
