@@ -31,7 +31,6 @@ export class Blog implements OnInit{
     window.location.reload();
   }
 
-
   getAll(){
    this.service.getAll().subscribe(response => {
     console.log(response);

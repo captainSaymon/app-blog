@@ -10,6 +10,11 @@
     <button class="btn btn-black btn-lg text-white mb-4" (click)="refreshPosts()">Odśwież posty</button>
   </div>
   <div class="row justify-content-center">
+    @if (!(items$ | filter:filterText)?.length) {
+      <div class="d-flex justify-content-center text-primary">
+        <p>Brak wyników</p>
+      </div>
+    }
     @for (item of (items$ | filter:filterText); track item._id)
     {
       <div class="col-12 col-md-7 mb-4">
