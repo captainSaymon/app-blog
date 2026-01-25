@@ -10,14 +10,11 @@ import { Blog } from '../blog/blog';
  styleUrl: './blog-home.scss'
 })
 export class BlogHome implements OnInit {
-
  public filterText: string = '';
 
- constructor() {
- }
+ constructor() { }
 
- ngOnInit(): void {
- }
+  ngOnInit() { }
 
  getName($event: string): void {
    this.filterText = $event;
