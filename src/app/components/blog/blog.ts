@@ -5,12 +5,11 @@ import { BlogItem } from '../blog-item/blog-item';
 import { AddPost } from '../add-post/add-post';
 import { Gallery } from '../gallery/gallery';
 import { FilterTextPipe } from '../../pipes/filter-text-pipe';
-import { SearchBar } from "../../shared/search-bar/search-bar";
 
 @Component({
  selector: 'blog',
  standalone: true,
- imports: [BlogItem, CommonModule, AddPost, Gallery, FilterTextPipe, SearchBar],
+ imports: [BlogItem, CommonModule, AddPost, Gallery, FilterTextPipe],
  providers: [DataService],
  templateUrl: './blog.html',
  styleUrl: './blog.scss'
