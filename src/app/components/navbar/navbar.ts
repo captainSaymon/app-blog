@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth-service';
 import { Router, RouterModule } from '@angular/router';
  
 @Component({
-  selector: 'app-navbar',
+  selector: 'navbar',
   standalone: true,
   imports: [RouterModule],
   templateUrl: './navbar.html',
