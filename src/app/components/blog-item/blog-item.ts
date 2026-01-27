@@ -4,7 +4,7 @@ import { BlogItemImage } from '../blog-item-image/blog-item-image';
 import { BlogItemText } from '../blog-item-text/blog-item-text';
 import { CommentsSection } from '../comments-section/comments-section';
 import { RouterModule } from '@angular/router';
-import { Favorites } from '../../services/favorites';
+import { FavoritesService } from '../../services/favorites-service';
 import { Rating } from '../../shared/rating/rating';
 
 @Component({
@@ -19,7 +19,7 @@ export class BlogItem {
   @Input() text?: string;
   @Input() postId!: string;
 
-  constructor(private favoritesService: Favorites) {}
+  constructor(private favoritesService: FavoritesService) {}
 
   get isFavorite(): boolean {
     return this.favoritesService.isFavorite(this.postId);

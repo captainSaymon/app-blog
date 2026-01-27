@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { DataService } from '../../services/data';
+import { DataService } from '../../services/data-service';
 import { BlogItem } from '../blog-item/blog-item';
 import { AddPost } from '../add-post/add-post';
 import { Gallery } from '../gallery/gallery';

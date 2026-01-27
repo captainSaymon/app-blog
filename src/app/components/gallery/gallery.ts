@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../../services/data';
+import { DataService } from '../../services/data-service';
 
 @Component({
   selector: 'gallery',
