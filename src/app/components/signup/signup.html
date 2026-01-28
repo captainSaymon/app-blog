@@ -1,23 +1,41 @@
 <section class="container mt-5">
   <h2>Rejestracja</h2>
-  <form autocomplete="off">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 	<div class="mb-3">
-  	<label class="form-label">Email <span class="text-danger">*</span></label>
-  	<input type="email" class="form-control" [(ngModel)]="credentials.email"
-         	name="email" placeholder="Wpisz email">
+		<label class="form-label">Email*</label>
+		<input type="email" class="form-control" formControlName="email" placeholder="Wpisz email" required>
+		@if (signupForm.controls['email'].touched && signupForm.controls['email'].hasError('required'))
+		{
+			<div class="text-danger small">Email jest wymagany</div>
+		}
 	</div>
 	<div class="mb-3">
-  	<label class="form-label">Hasło <span class="text-danger">*</span></label>
-  	<input type="password" class="form-control" [(ngModel)]="credentials.password"
-         	name="password" placeholder="Wpisz hasło (5-15 znaków)">
+		<label class="form-label">Hasło*</label>
+		<input type="password" class="form-control" formControlName="password" placeholder="Wpisz hasło (5-15 znaków)">
+		@if (signupForm.controls['password'].touched)
+		{
+			@if (signupForm.controls['password'].hasError('required')) {
+				<div class="text-danger small">Hasło nie może być puste</div>
+			}
+
+			@if (signupForm.controls['password'].hasError('minlength')) {
+				<div class="text-danger small">Hasło musi mieć co najmniej 5 znaków</div>
+			}
+
+			@if (signupForm.controls['password'].hasError('maxlength')) {
+				<div class="text-danger small">Hasło może mieć maksymalnie 15 znaków</div>
+			}
+        }
 	</div>
 	<div class="mb-3">
-  	<label class="form-label">Imię <span class="text-danger">*</span></label>
-  	<input type="text" class="form-control" [(ngModel)]="credentials.name"
-         	name="name" placeholder="Wpisz imię">
+		<label class="form-label">Imię*</label>
+		<input type="text" class="form-control" formControlName="name" placeholder="Wpisz imię" required>
+		@if (signupForm.controls['name'].touched && signupForm.controls['name'].hasError('required')) {
+			<div class="text-danger small">Podaj imię</div>
+		}
 	</div>
-	<button (click)="create()" type="button" class="btn btn-primary">
-  	Sign Up
+	<button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">
+  		Sign Up
 	</button>
   </form>
 </section>

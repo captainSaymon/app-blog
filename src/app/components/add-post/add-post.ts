@@ -16,10 +16,7 @@ export class AddPost implements OnInit {
   imagePreview: string | null = null;
   showAddPost = false;
 
-  constructor(
-    private fb: FormBuilder,
-    private dataService: DataService
-  ) {}
+  constructor(private fb: FormBuilder, private dataService: DataService) {}
 
   ngOnInit() {
     this.postForm = this.fb.group({
