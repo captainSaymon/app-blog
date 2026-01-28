@@ -7,14 +7,14 @@ import { DataService } from '../../services/data-service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './gallery.html',
-  styleUrls: ['./gallery.scss']
+  styleUrl: './gallery.scss'
 })
 export class Gallery implements OnInit {
 
   images: string[] = [];
   showLightbox = false;
   currentImage: string | null = null;
-  showGallery = false;
+  showGallery = true;
 
   constructor(private dataService: DataService) {}
 
