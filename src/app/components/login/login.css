@@ -1,0 +1,12 @@
+.login-wrapper {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.login-wrapper h2 {
+  margin-bottom: 1.5rem;
+}
+
+.login-wrapper button {
+  width: 100%;
+}
