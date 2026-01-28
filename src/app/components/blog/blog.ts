@@ -2,8 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { DataService } from '../../services/data-service';
 import { BlogItem } from '../blog-item/blog-item';
-import { AddPost } from '../add-post/add-post';
-import { Gallery } from '../gallery/gallery';
 import { FilterTextPipe } from '../../pipes/filter-text-pipe';
 import { Pagination } from '../../shared/pagination/pagination';
 import { PaginatePipe } from '../../pipes/paginate-pipe';
@@ -12,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
  selector: 'blog',
  standalone: true,
- imports: [BlogItem, CommonModule, AddPost, Gallery, FilterTextPipe, Pagination, PaginatePipe],
+ imports: [BlogItem, CommonModule, FilterTextPipe, Pagination, PaginatePipe],
  providers: [DataService],
  templateUrl: './blog.html',
  styleUrls: ['./blog.scss']
@@ -30,8 +28,6 @@ export class Blog implements OnInit {
       const page = parseInt(params['page'], 10);
       this.currentPage = page && page > 0 ? page : 1;
     });
-
-    this.loadPosts();
   }
 
   loadPosts() {
