@@ -17,7 +17,7 @@ export class AuthService {
  
   authenticate(credentials: any) {
 	const localStorage = this.document.defaultView?.localStorage;
-	return this.http.post<Token>(URL + '/user/auth', {
+	return this.http.post<Token>(URL + '/api/user/auth', {
   	login: credentials.login,
   	password: credentials.password
 	}).pipe(
@@ -32,12 +32,12 @@ export class AuthService {
   }
  
   createOrUpdate(credentials: any) {
-	return this.http.post(URL + '/user/create', credentials);
+	return this.http.post(URL + '/api/user/create', credentials);
   }
  
   logout() {
 	const localStorage = this.document.defaultView?.localStorage;
-	return this.http.delete(URL + '/user/logout/' + this.currentUser?.userId)
+	return this.http.delete(URL + '/api/user/logout/' + this.currentUser?.userId)
   	.pipe(
     	map(() => {
       	localStorage?.removeItem('token');
