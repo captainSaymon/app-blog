@@ -17,16 +17,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class Blog implements OnInit {
   public items$: any;
-  @Input() filterText: string = '';
+  filterText: string = '';
   public currentPage: number = 1;
   public itemsPerPage: number = 2;
 
   constructor(private service: DataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.loadPosts();
+    
     this.route.queryParams.subscribe(params => {
       const page = parseInt(params['page'], 10);
       this.currentPage = page && page > 0 ? page : 1;
+
+      this.filterText = params['search'] || '';
     });
   }
 

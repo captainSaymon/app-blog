@@ -3,11 +3,12 @@ import { AuthService } from '../../services/auth-service';
 import { Router, RouterModule } from '@angular/router';
 import { AddPost } from '../add-post/add-post';
 import { Gallery } from '../gallery/gallery';
+import { SearchBar } from '../../shared/search-bar/search-bar';
 
 @Component({
   selector: 'navbar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, SearchBar],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss'
 })
@@ -39,5 +40,12 @@ export class Navbar {
       this.container.createComponent(Gallery);
       this.activeType = 'gallery';
     }
+  }
+
+  onSearch(term: string) {
+    this.router.navigate(['/blog'], {
+      queryParams: { search: term || null },
+      queryParamsHandling: 'merge'
+    });
   }
 }
