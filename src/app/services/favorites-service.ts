@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class Favorites {
+export class FavoritesService {
   private readonly STORAGE_KEY = 'blog_favorites';
 
   getFavorites(): string[] {

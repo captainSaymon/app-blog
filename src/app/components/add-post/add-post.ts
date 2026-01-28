@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { DataService, Post } from '../../services/data';
+import { DataService, Post } from '../../services/data-service';
 
 @Component({
   selector: 'add-post',
