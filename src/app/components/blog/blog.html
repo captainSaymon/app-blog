@@ -11,7 +11,7 @@
     @for (item of (items$ | filter:filterText | paginate:currentPage:itemsPerPage); track item._id)
     {
       <div class="col-12 col-md-7 mb-4">
-        <blog-item [image]="item.image" [text]="item.text" [postId]="item._id"></blog-item>
+        <blog-item [image]="item.image" [text]="item.text" [postId]="item._id" [like]="item.likes"></blog-item>
       </div>
     }
     <pagination

@@ -6,6 +6,7 @@
        (click)="toggleFavorite()"
        style="cursor: pointer; color: rgb(0, 149, 255);">
     </i>
+    <span class="like-counter">{{ like }}</span>
     <div class="ms-2">
       <rating [postId]="postId"></rating>
     </div>
