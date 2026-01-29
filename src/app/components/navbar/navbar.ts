@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AddPost } from '../add-post/add-post';
 import { Gallery } from '../gallery/gallery';
 import { SearchBar } from '../../shared/search-bar/search-bar';
+import { DataService } from '../../services/data-service';
 
 @Component({
   selector: 'navbar',
@@ -13,11 +14,12 @@ import { SearchBar } from '../../shared/search-bar/search-bar';
   styleUrl: './navbar.scss'
 })
 export class Navbar {
-  @ViewChild('container', { read: ViewContainerRef, static: true })
+  @ViewChild('container', { read: ViewContainerRef, static: true})
   container!: ViewContainerRef;
   activeType: 'add' | 'gallery' | null = null;
+  public items$: any;
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService, private router: Router, private service: DataService) { }
 
   signOut() {
     this.authService.logout().subscribe({
@@ -46,6 +48,20 @@ export class Navbar {
     this.router.navigate(['/blog'], {
       queryParams: { search: term || null },
       queryParamsHandling: 'merge'
+    });
+  }
+
+  mostPopularPost() {
+    this.service.getAll().subscribe((posts: any) => {
+      const arr = Array.isArray(posts) ? posts : posts.data;
+      this.items$ = arr;
+      const postWithMostLikes = arr.reduce((max: any, post: any) => {
+        return post.likes > (max.likes || 0) ? post : max;
+      }, {} as any);
+
+      if (postWithMostLikes && postWithMostLikes._id) {
+        this.router.navigate(['/blog/detail/', postWithMostLikes._id]);
+      }
     });
   }
 }
