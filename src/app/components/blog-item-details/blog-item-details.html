@@ -1,6 +1,7 @@
-<div class="d-flex justify-content-center">
-  <div class="text-center" style="max-width: 1000px; width: 100%;">
-    <img [src]="post.image" alt="{{ post.title }}" class="img-fluid mb-3 rounded">
-    <p>{{ post.text }}</p>
+<div class="d-flex justify-content-center my-5">
+  <div class="post-card d-flex flex-column text-center p-4 shadow-sm rounded">
+    <img [src]="post.image" alt="{{ post.title }}" class="img-fluid mb-4 rounded shadow-sm">
+    <p class="mb-3">{{ post.text }}</p>
+    <span class="badge bg-primary mt-auto">Polubienia: {{ post.likes }}</span>
   </div>
 </div>
