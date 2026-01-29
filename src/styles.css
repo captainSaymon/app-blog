@@ -2,6 +2,7 @@
   --bg-color: #ffffff;
   --text-color: #171717;
   --card-bg: #f6f6f6;
+  --second-color: #e1e1e1;
   --border-color: #d5d5d5;
 }
 
@@ -9,7 +10,8 @@ body.dark-mode {
   --bg-color: #141414;
   --text-color: #eaeaea;
   --card-bg: #1c1c1c;
-  --border-color: #000000;
+  --second-color: #252525;
+  --border-color: #242424;
 }
 
 body {

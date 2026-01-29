@@ -7,6 +7,7 @@ export interface Post {
   title: string;
   text: string;
   image: string;
+  likes: number;
 }
 
 @Injectable({
@@ -25,5 +26,13 @@ export class DataService {
 
   addPost(id: string, post: Post) {
     return this.http.post(`${URL}/posts/${id}`, post);
+  }
+
+  addlike(id: string) {
+    return this.http.patch(`${URL}/posts/like/${id}`,  {});
+  }
+
+  unlikePost(id: string) {
+    return this.http.patch(`${URL}/posts/unlike/${id}`, {});
   }
 }

@@ -20,10 +20,9 @@ export class SearchBar implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute){ }
 
   ngOnInit(): void {
-  this.route.queryParams.subscribe(params => {
-    this.filterText = params['name'];
-    this.name.emit(this.filterText);
-  });
+    this.route.queryParams.subscribe(params => {
+    this.filterText = params['search'] || '';
+    });
   }
 
   toggleSearch() {
@@ -31,9 +30,6 @@ export class SearchBar implements OnInit {
   }
 
   sendFilter(): void {
-    this.router.navigate(['/blog'], {
-      queryParams: { name: this.filterText?.toLowerCase() }
-    });
     this.name.emit(this.filterText);
   }
 }

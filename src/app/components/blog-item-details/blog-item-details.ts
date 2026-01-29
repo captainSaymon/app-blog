@@ -9,7 +9,7 @@ import { DataService, Post } from '../../services/data-service';
   styleUrl: './blog-item-details.scss',
 })
 export class BlogItemDetails implements OnInit {
-  public post: Post = { title: '', text: '', image: '' };
+  public post: Post = { title: '', text: '', image: '', likes: 0};
 
   constructor(private route: ActivatedRoute, private service: DataService) {}
 

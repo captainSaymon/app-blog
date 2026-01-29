@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchBar } from '../../shared/search-bar/search-bar';
 import { Blog } from '../blog/blog';
 
 @Component({
  selector: 'blog-home',
  standalone: true,
- imports: [SearchBar, Blog],
+ imports: [Blog],
  templateUrl: './blog-home.html',
  styleUrl: './blog-home.scss'
 })

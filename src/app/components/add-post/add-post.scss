@@ -1,0 +1,14 @@
+.cardForm {
+    background-color: var(--card-bg);
+}
+
+.textForm {
+    background-color: var(--second-color);
+    border-color: var(--bg-color);
+    color: var(--text-color);
+
+    &::placeholder {
+        color: var(--text-color);
+    }
+}
+
