@@ -44,7 +44,8 @@ export class AddPost implements OnInit {
     const newPost: Post = {
       title: `Post 0`,  // stały numer
       text: this.postForm.value.text,
-      image: this.postForm.value.image
+      image: this.postForm.value.image,
+      likes: 0
     };
 
     this.dataService.addPost("1", newPost).subscribe({
